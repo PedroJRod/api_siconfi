@@ -15,7 +15,7 @@ def RREO(an_exercicio, nr_periodo, co_tipo_demonstrativo, no_anexo, id_ente):
     """
     url = f'https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio={an_exercicio}&nr_periodo={nr_periodo}&co_tipo_demonstrativo={co_tipo_demonstrativo}&no_anexo={no_anexo}&id_ente={id_ente}'
     response = requests.get(url)
-    response.raise_for_status()
+    response.raise_for_status() #usado para verificar se a requisição HTTP foi bem-sucedida.
     return pd.DataFrame(response.json().get('items', []))
 
 # Função para obter dados do RGF (Relatório de Gestão Fiscal)
@@ -32,7 +32,7 @@ def RGF(an_exercicio, in_periodicidade, nr_periodo, co_tipo_demonstrativo, co_po
     """
     url = f'https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rgf?an_exercicio={an_exercicio}&in_periodicidade={in_periodicidade}&nr_periodo={nr_periodo}&co_tipo_demonstrativo={co_tipo_demonstrativo}&co_poder={co_poder}&id_ente={id_ente}'
     response = requests.get(url)
-    response.raise_for_status()
+    response.raise_for_status() #usado para verificar se a requisição HTTP foi bem-sucedida.
     return pd.DataFrame(response.json().get('items', []))
 
 # main.py
